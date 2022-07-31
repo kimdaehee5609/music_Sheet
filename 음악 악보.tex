@@ -1,0 +1,517 @@
+%	-------------------------------------------------------------------------------
+% 
+%
+%
+%		2022.07.31.일 첫 작성
+%
+%		음악 악보
+%
+%
+%
+%
+%	-------------------------------------------------------------------------------
+
+	\documentclass[12pt, a4paper, oneside]{book}
+%	\documentclass[12pt, a4paper, landscape, oneside]{book}
+
+		% --------------------------------- 페이지 스타일 지정
+		\usepackage{geometry}
+%		\geometry{landscape=true	}
+		\geometry{top 		=10em}
+		\geometry{bottom		=10em}
+		\geometry{left		=8em}
+		\geometry{right		=8em}
+		\geometry{headheight	=4em} % 머리말 설치 높이
+		\geometry{headsep		=2em} % 머리말의 본문과의 띠우기 크기
+		\geometry{footskip		=4em} % 꼬리말의 본문과의 띠우기 크기
+% 		\geometry{showframe}
+	
+%		paperwidth 	= left + width + right (1)
+%		paperheight 	= top + height + bottom (2)
+%		width 		= textwidth (+ marginparsep + marginparwidth) (3)
+%		height 		= textheight (+ headheight + headsep + footskip) (4)
+
+
+
+		%	===================================================================
+		%	package
+		%	===================================================================
+%			\usepackage[hangul]{kotex}				% 한글 사용
+			\usepackage{kotex}						% 한글 사용
+			\usepackage[unicode]{hyperref}			% 한글 하이퍼링크 사용
+			\usepackage{amssymb,amsfonts,amsmath}	% 수학 수식 사용
+
+			\usepackage{scrextend}					% 
+		
+			\usepackage{enumerate}			%
+			\usepackage{enumitem}			%
+			\usepackage{tablists}			%	수학문제의 보기 등을 표현하는데 사용
+										%	tabenum
+
+
+		% ------------------------------ table 
+			\usepackage{longtable}			%
+			\usepackage{tabularx}			%
+
+			\usepackage{setspace}			%
+			\usepackage{booktabs}			% table
+			\usepackage{color}				%
+			\usepackage{multirow}			%
+			\usepackage{boxedminipage}		% 미니 페이지
+			\usepackage[pdftex]{graphicx}	% 그림 사용
+			\usepackage[final]{pdfpages}	% pdf 사용
+			\usepackage{framed}			% pdf 사용
+			
+			\usepackage{fix-cm}	
+			\usepackage[english]{babel}
+	
+			\usepackage{tikz}%
+			\usetikzlibrary{arrows,positioning,shapes}
+			%\usetikzlibrary{positioning}
+			
+
+		% --------------------------------- 	page
+			\usepackage{afterpage}			% 다음페이지가 나온면 어떻게 하라는 명령 정의 패키지
+%			\usepackage{fullpage}			% 잘못 사용하면 다 흐트러짐 주의해서 사용
+%			\usepackage{pdflscape}			% 
+			\usepackage{lscape}			%	 
+
+
+			\usepackage{blindtext}
+	
+		% --------------------------------- font 사용
+			\usepackage{pifont}				%
+			\usepackage{textcomp}
+			\usepackage{gensymb}
+			\usepackage{marvosym}
+
+
+
+
+
+
+		% --------------------------------- 페이지 스타일 지정
+
+		\usepackage[Sonny]		{fncychap}
+
+			\makeatletter
+			\ChNameVar	{\Large\bf}
+			\ChNumVar		{\Huge\bf}
+			\ChTitleVar	{\Large\bf}
+			\ChRuleWidth	{0.5pt}
+			\makeatother
+
+%		\usepackage[Lenny]		{fncychap}
+%		\usepackage[Glenn]		{fncychap}
+%		\usepackage[Conny]		{fncychap}
+%		\usepackage[Rejne]		{fncychap}
+%		\usepackage[Bjarne]	{fncychap}
+%		\usepackage[Bjornstrup]{fncychap}
+
+		\usepackage{fancyhdr}
+		\pagestyle{fancy}
+		\fancyhead{} % clear all fields
+		\fancyhead[LO]{\footnotesize \leftmark}
+		\fancyhead[RE]{\footnotesize \leftmark}
+		\fancyfoot{} % clear all fields
+		\fancyfoot[LE,RO]{\large \thepage}
+		%\fancyfoot[CO,CE]{\empty}
+		\renewcommand{\headrulewidth}{1.0pt}
+		\renewcommand{\footrulewidth}{0.4pt}
+	
+	
+	
+		% --------------------------------- 	section 스타일 지정
+	
+		\usepackage{titlesec}
+		
+		\titleformat*{\section}			{\large\bfseries}
+		\titleformat*{\subsection}			{\normalsize\bfseries}
+		\titleformat*{\subsubsection}		{\normalsize\bfseries}
+		\titleformat*{\paragraph}			{\normalsize\bfseries}
+		\titleformat*{\subparagraph}		{\normalsize\bfseries}
+	
+		\renewcommand{\thesection}			{\arabic{section}.}
+		\renewcommand{\thesubsection}		{\thesection\arabic{subsection}.}
+		\renewcommand{\thesubsubsection}	{\thesubsection\arabic{subsubsection}}
+		
+
+		\titlespacing*{\section} 			{0ex}{1.0em}{1.0em}
+		\titlespacing*{\subsection}		{0ex}{1.0em}{1.0em}
+		\titlespacing*{\subsubsection}		{0ex}{1.0em}{1.0em}
+		\titlespacing*{\paragraph}		{0ex}{1.0em}{1.0em}
+		\titlespacing*{\subparagraph}		{0ex}{1.0em}{1.0em}
+	
+	%	\titlespacing*{\section} 			{0pt}{0.0\baselineskip}{0.0\baselineskip}
+	%	\titlespacing*{\subsection}	  		{0ex}{0.0\baselineskip}{0.0\baselineskip}
+	%	\titlespacing*{\subsubsection}		{6ex}{0.0\baselineskip}{0.0\baselineskip}
+	%	\titlespacing*{\paragraph}			{6pt}{0.0\baselineskip}{0.0\baselineskip}
+	
+
+		% --------------------------------- recommend		섹션별 페이지 상단 여백
+		\newcommand{\SectionMargin}			{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSectionMargin}		{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSubSectionMargin}	{\newpage  \null \vskip 2cm}
+
+
+	
+		% --------------------------------- 장의 목차
+		\usepackage{minitoc}
+		\setcounter{minitocdepth}{1}    	% Show until subsubsections in minitoc
+		\setlength{\mtcindent}{12pt} 		% default 24pt
+	
+	
+		% --------------------------------- 	문서 기본 사항 설정
+		\setcounter{secnumdepth}{3} 		% 문단 번호 깊이
+		\setcounter{tocdepth}{3} 			% 문단 번호 깊이
+		\setlength{\parindent}{0cm} 		% 문서 들여 쓰기를 하지 않는다.
+		
+		
+		% --------------------------------- 	줄간격 설정
+		\doublespace
+%		\onehalfspace
+%		\singlespace
+		
+		
+% 	============================================================================== List global setting
+%		\setlist{itemsep=1.0em}
+	
+% 	============================================================================== enumi setting
+
+%		\renewcommand{\labelenumi}{\arabic{enumi}.} 
+%		\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+%		\renewcommand{\labelenumii}{(\arabic{enumii})}
+%		\renewcommand{\labelenumiii}{\arabic{enumiii})}
+
+
+	%	-------------------------------------------------------------------------------
+	%		Vertical and Horizontal spacing
+	%	-------------------------------------------------------------------------------
+		\setlist[enumerate,1]	{ leftmargin=8.0em, rightmargin=0.0em, labelwidth=0.0em, labelsep=0.0em }
+		\setlist[enumerate,2]	{ leftmargin=8.0em, rightmargin=0.0em, labelwidth=0.0em, labelsep=0.0em }
+		\setlist[enumerate,3]	{ leftmargin=8.0em, rightmargin=0.0em, labelwidth=0.0em, labelsep=0.0em }
+		\setlist[enumerate]	{ 	itemsep=1.0em, 
+								leftmargin=6.0ex, 
+								rightmargin=0.0em, 
+								labelwidth=0.0em, 
+								labelsep=4.0ex 
+							}
+
+
+	%	-------------------------------------------------------------------------------
+	%		Label
+	%	-------------------------------------------------------------------------------
+%		\setlist[enumerate,1]{ label=\arabic*., ref=\arabic* }
+%		\setlist[enumerate,1]{ label=\emph{\arabic*.}, ref=\emph{\arabic*} }
+%		\setlist[enumerate,1]{ label=\textbf{\arabic*.}, ref=\textbf{\arabic*} }   	% 1.
+%		\setlist[enumerate,1]{ label=\textbf{\arabic*)}, ref=\textbf{\arabic*)} }		% 1)
+		\setlist[enumerate,1]{ label=\textbf{(\arabic*)}, ref=\textbf{(\arabic*)} }	% (1)
+		\setlist[enumerate,2]{ label=\textbf{\arabic*)}, ref=\textbf{\arabic*)} }		% 1)
+		\setlist[enumerate,3]{ label=\textbf{\arabic*.}, ref=\textbf{\arabic*.} }		% 1.
+
+%		\setlist[enumerate,2]{ label=\emph{\alph*}),ref=\theenumi.\emph{\alph*} }
+%		\setlist[enumerate,3]{ label=\roman*), ref=\theenumii.\roman* }
+
+
+% 	============================================================================== itemi setting
+
+
+	%	-------------------------------------------------------------------------------
+	%		Vertical and Horizontal spacing
+	%	-------------------------------------------------------------------------------
+		\setlist[itemize]{itemsep=0.0em}
+
+
+
+
+
+
+		% --------------------------------- recommend  글자 색깔지정 명령
+		\newcommand{\red}		{\color{red}}			% 글자 색깔 지정
+		\newcommand{\blue}		{\color{blue}}		% 글자 색깔 지정
+		\newcommand{\black}	{\color{black}}		% 글자 색깔 지정
+		\newcommand{\superscript}[1]{${}^{#1}$}
+
+	
+	
+		% --------------------------------- 환경 정의 : 박스 치고 안의 글자 빨간색
+
+			\newenvironment{BoxRedText}
+			{ 	\setlength{\fboxsep}{12pt}
+				\begin{boxedminipage}[c]{1.0\linewidth}
+				\color{red}
+			}
+			{ 	\end{boxedminipage} 
+				\color{black}
+			}
+			
+			
+
+% ------------------------------------------------------------------------------
+% Begin document (Content goes below)
+% ------------------------------------------------------------------------------
+	\begin{document}
+	
+			\dominitoc
+			
+
+			\title{음악 악보}
+			\author{김대희}
+			\date{2022년 7월}
+			\maketitle
+
+
+			\tableofcontents
+			\listoffigures
+			\listoftables
+
+			
+
+% ================================================= chapter 	====================
+	\newpage
+	\chapter{음악 기본 이론}
+
+
+	% -------------------------------------- page -------------------
+	%	\nomtcrule         		% removes rules = horizontal lines
+	%	\nomtcpagenumbers  % remove page numbers from minitocs
+		\newpage
+		\minitoc				% Creating an actual minitoc
+	%	\doublespace
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage  \null
+	\section{음악 기본 이론}
+
+
+
+% ================================================= chapter 	====================
+	\newpage
+	\chapter{ 릴리 폰드 Lily pond } 
+
+
+	% -------------------------------------- page -------------------
+	%	\nomtcrule         		% removes rules = horizontal lines
+	%	\nomtcpagenumbers  % remove page numbers from minitocs
+		\newpage
+		\minitoc				% Creating an actual minitoc
+	%	\doublespace
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage  \null
+
+
+	\section{기존 어도비군과 같은 단축키}
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6.0em, labelwidth=3em, labelsep=1em] 
+			\item 	선택 : V
+			\item 	펜 : P
+			\item 	텍스트 : T
+			\item 	같은 위치에 객체 복제 : CTRL+D
+			\item 	선택한 요소들을 그룹화 :  CTRL+G
+			\end{itemize}
+
+
+
+% ================================================= chapter 	====================
+	\newpage
+	\chapter{ 프레스코 발디 Fre sco baldi } 
+
+
+	% -------------------------------------- page -------------------
+	%	\nomtcrule         		% removes rules = horizontal lines
+	%	\nomtcpagenumbers  % remove page numbers from minitocs
+		\newpage
+		\minitoc				% Creating an actual minitoc
+	%	\doublespace
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage  \null
+
+
+	\section{기존 어도비군과 같은 단축키}
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6.0em, labelwidth=3em, labelsep=1em] 
+			\item 	선택 : V
+			\item 	펜 : P
+			\item 	텍스트 : T
+			\item 	같은 위치에 객체 복제 : CTRL+D
+			\item 	선택한 요소들을 그룹화 :  CTRL+G
+			\end{itemize}
+
+
+
+	\section{피그마에서 가장 많이 쓰이는 단축키}
+
+
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6.0em, labelwidth=3em, labelsep=1em] 
+			\item 	사각형 : R
+			\item 	선 : L
+			\item 	원 : O
+			\item 	문자 : T
+			\item 	프레임 : F
+			\item 	색상 선택 : I
+			\end{itemize}
+ 
+
+
+	\section{개체와 관련된 피그마 단축키}
+ 
+	\subsection{1. 이동, 크기 조정}
+ 
+화살표를 사용하면 정확한 위치만큼 이동하거나, 크기를 조정할 때 편리합니다.
+
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6.0em, labelwidth=3em, labelsep=1em] 
+			\item 	1px씩 이동하기 : 화살표 상, 하, 좌, 우 키
+			\item 	10px씩 이동하기 : SHIFT + 화살표 상, 하, 좌, 우 키
+			\item 	1px씩 크기 조정하기 : CTRL + 화살표 상, 하, 좌, 우 키
+			\item 	10px씩 크기 조정하기 : CTRL + SHIFT + 화살표 상, 하, 좌, 우 키
+			\end{itemize}
+
+
+ 
+
+
+	\subsection{2. 위치 정렬}
+ 
+Figma에는 Design 패널 윗부분에 있는 정렬 아이콘으로 개체를 정렬할 수 있습니다. 하지만 키보드 단축키를 사용하면 더 빠르게 정렬할 수 있습니다.
+ 
+
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6.0em, labelwidth=3em, labelsep=1em] 
+			\item 	가로 왼쪽 정렬 : ALT+A
+			\item 	가로 가운데 정렬 : ALT+H
+			\item 	가로 오른쪽 정렬 : ALT+D
+			\item 	세로 상단 정렬 : ALT+W
+			\item 	세로 가운데 정렬 : ALT+V
+			\item 	세로 하단 정렬 : ALT+S
+			\end{itemize}
+
+ 
+※ 어도비 제품과는 다르게, 수평 수직 가운데 정렬에 Horizontal, Vertical의 약자를 사용하고 있습니다. 
+다른 방향들은 게임에서 자주 쓰이는 ASDW 키를 사용한 것이 인상적이네요.
+
+	\subsection{3. 레이어 정렬}
+ 
+레이어의 계층을 정렬할 수 있습니다.
+ 
+
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6.0em, labelwidth=3em, labelsep=1em] 
+			\item 	뒤로 보내기 : [
+			\item 	앞으로 가져오기 : ]
+			\end{itemize}
+
+
+ 
+ 
+	\subsection{4. 플립(뒤집기)}
+ 
+
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6.0em, labelwidth=3em, labelsep=1em] 
+			\item 	수평 플립 : SHIFT + H
+			\item 	수직 플립 : SHIFT + V
+			\end{itemize}
+
+
+
+	\subsection{5. 불투명도 설정}
+
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6.0em, labelwidth=3em, labelsep=1em] 
+			\item 	0~9 숫자키
+			\end{itemize}
+ 
+요소를 선택한 상태에서, 0~9 숫자키를 사용하여 선택한 개체에 불투명도를 설정할 수 있습니다.  
+더 세밀하게 제어하려면 두 숫자를 연속으로 빠르게 누르면 됩니다.\\
+※ 설정한 불투명도는 Design패널에 Pass through 옆에 표시됩니다.
+
+
+
+	\section{화면을 보는 방식과 관련된 피그마 단축키}
+ 
+	\subsection{1. 그리드, 자, 패널 표시\&숨기기}
+ 
+그리드는 정확한 배치를 위해 필요하지만, 디자인을 확인할 때는 잠시 숨겨보세요.
+ 
+
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6.0em, labelwidth=3em, labelsep=1em] 
+			\item 	레이아웃 그리드 토글 : CTRL+SHIFT+4
+			\item 	자(룰러) 토글 : SHIFT + R
+			\item 	패널 토글 : CTRL + \
+			\end{itemize}
+
+
+
+	\subsection{2. 화면 탐색}
+ 
+화면을 탐색해서 특정 요소를 찾을 때, 손바닥 툴(H)을 사용할 수 있습니다. 하지만 더 빠른 방법이 있습니다.
+ 
+
+SPACE키를 누른 상태에서 마우스로 드래그
+
+
+	\subsection{3. 확대, 축소}
+ 
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6.0em, labelwidth=3em, labelsep=1em] 
+			\item 	화면에 캔버스 핏 : SHIFT+1
+			\item 	선택한 개체 확대 : SHIFT+2
+			\item 	배율 100% : SHIFT+0
+			\item 	확대 : + (또는 Z키를 누른 채 클릭)
+			\item 	축소 : - (또는 Z키와 ALT키를 누른 채 클릭)
+			\item 	마우스 휠로 확대 축소 : CTRL + 마우스 휠
+			\end{itemize}
+
+
+ 
+※ 확대/축소 설정 및 보기 방식에 대한 추가 옵션을 보려면, 화면 오른쪽 위 모서리에 표시된 숫자% 드롭다운 메뉴를 클릭합니다.
+
+출처: https://cucat.tistory.com/53 [큐캣의 탐구생활:티스토리]
+
+
+	\section{오토 레이아웃}
+ 
+
+오토 레이아웃 : SHIFT+A
+
+ 
+※ 오토 레이아웃은 크기를 조정할 수 있는 구성요소를 빠르게 구성할 수 있는 기능입니다. 한번 알아두면 편하니까 꼭 알아두세요! 오토 레이아웃에 대해서는 글을 작성하는 대로 아래에 링크하겠습니다.
+출처: https://cucat.tistory.com/53 [큐캣의 탐구생활:티스토리]
+
+
+	\section{전체 피그마 단축키 목록을 확인하는 방법}
+ 
+	\subsection{1. 피그마에서 단축키 목록 확인}
+ 
+피그마 디자인 파일을 열고, 화면 오른쪽 아래에 있는 물음표 모양의 버튼을 누르고 ‘keyboard shortcut’을 누릅니다.
+ 
+ 
+
+ 
+유형별로 분류된 피그마의 모든 키보드 단축키가 나타납니다. 
+ 
+
+ 
+※ 이전에 사용한 단축키는 목록에서 파란색으로 강조되어 표시됩니다.
+
+도구나 메뉴 옆에도 단축키가 나오니까, 평소에 자주 쓰는 것은 눈여겨 봐주세요.
+ 
+
+
+(adsbygoogle = window.adsbygoogle || []).push({});
+
+ 
+	\subsection{2. 단축키를 정리해놓은 사이트 참고}
+ 
+피그마뿐만이 아니라, 많은 프로그램들의 단축키를 정리해놓은 usethekeyboard라는 사이트가 있어 링크해놓겠습니다.
+ 
+https://usethekeyboard.com/figma/
+
+디자인 프로그램은 단축키를 쓰고 안 쓰고 차이가 생산성에 많은 차이가 있는 것 같습니다. 특히 자주 쓰는 단축키는 반복 작업하기 귀찮아서라도 알아두면 좋죠. 
+ 
+출처: https://cucat.tistory.com/53 [큐캣의 탐구생활:티스토리]
+
+% ------------------------------------------------------------------------------
+% End document
+% ------------------------------------------------------------------------------
+\end{document}
+
+
